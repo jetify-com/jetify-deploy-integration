@@ -1,0 +1,15 @@
+{
+  "packages": [
+    "python@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "source $VENV_DIR/bin/activate"
+    ],
+    "scripts": {
+      "pip-install": "pip install -r requirements.txt",
+      "run_test": "python main.py"
+    }
+  },
+  "env_from": "jetpack-cloud"
+}
