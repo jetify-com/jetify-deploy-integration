@@ -10,6 +10,8 @@ COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} devbox.lock devbox.lock
 
 RUN devbox install
 
+COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} requirements.text requirements.text
 RUN devbox run pip-install
 
+COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} main.py main.py
 CMD ["devbox", "run", "python", "main.py"]
