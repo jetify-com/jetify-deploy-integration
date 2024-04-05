@@ -1,4 +1,4 @@
-FROM jetpackio/devbox:latest
+FROM jetpackio/devbox:latest AS base
 
 # Installing your devbox project
 WORKDIR /code
@@ -10,8 +10,10 @@ COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} devbox.lock devbox.lock
 
 RUN devbox install
 
-COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} requirements.text requirements.text
+FROM base AS runner
+
+COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} requirements.txt requirements.txt
 RUN devbox run pip-install
 
 COPY --chown=${DEVBOX_USER}:${DEVBOX_USER} main.py main.py
-CMD ["devbox", "run", "python", "main.py"]
+CMD ["devbox", "run", "serve-gunicorn"]
