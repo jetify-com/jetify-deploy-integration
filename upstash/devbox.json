@@ -7,9 +7,8 @@
       ". $VENV_DIR/bin/activate"
     ],
     "scripts": {
-      "pip-install": "pip install -r requirements.txt",
-      "serve-gunicorn": "gunicorn -w 2 -b 0.0.0.0:8080 main:app",
-      "run_test": "python main.py"
+      "pip-install":    "pip install -r requirements.txt",
+      "serve-gunicorn": "gunicorn -w 2 -b 0.0.0.0:8080 main:app"
     }
   },
   "env_from": "jetpack-cloud"
