@@ -32,4 +32,4 @@ supabase==2.4.1
 supafunc==0.4.5
 typing_extensions==4.10.0
 websockets==12.0
-Werkzeug==3.0.2
+Werkzeug==3.0.3
